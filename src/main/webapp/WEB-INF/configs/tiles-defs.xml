@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+    <definition name="base.definition" template="/WEB-INF/jsp/template/baseLayout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="contentTitle" value="" />
+        <put-attribute name="content" value="" />
+    </definition>
+
+    <definition name="home" extends="base.definition">
+        <put-attribute name="title" value="Home" />
+        <put-attribute name="contentTitle" value="Home" />
+        <put-attribute name="content" value="/WEB-INF/jsp/home.jsp" />
+    </definition>
+    
+    <definition name="signup" extends="base.definition">
+        <put-attribute name="title" value="Signup" />
+        <put-attribute name="contentTitle" value="Signup" />
+        <put-attribute name="content" value="/WEB-INF/jsp/signup.jsp" />
+    </definition>
+    
+    <definition name="login" extends="base.definition">
+        <put-attribute name="title" value="Login" />
+        <put-attribute name="contentTitle" value="Login" />
+        <put-attribute name="content" value="/WEB-INF/jsp/login.jsp" />
+    </definition>
+    
+    <definition name="forgotPassword" extends="base.definition">
+        <put-attribute name="title" value="Forgot Password" />
+        <put-attribute name="contentTitle" value="Forgot Password" />
+        <put-attribute name="content" value="/WEB-INF/jsp/forgotPassword.jsp" />
+    </definition>
+    
+</tiles-definitions>

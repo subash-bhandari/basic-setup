@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sajhasite.controller.model.Login;
 import com.sajhasite.domain.entity.User;
 import com.sajhasite.service.AuthAuthService;
 

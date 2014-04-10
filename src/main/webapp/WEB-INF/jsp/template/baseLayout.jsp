@@ -135,7 +135,7 @@
 				<span style="font-weight: bold; color: #FFFFFF;">ShitIsUnderConstruction<sup>TM</sup></span>
 			</div>
 			<div style="width: 200px; float: right; text-align: right;">
-				${ServletContext.getServerInfo()}
+				${application.serverInfo}
 			</div>
 		</div>
 	</div>

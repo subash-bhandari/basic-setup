@@ -19,6 +19,15 @@
 			background-color: #003366;
 			color: #FFFFFF;
 		}
+		.topBarLinks a:visited {
+		    color: #E0E0E0;
+		    display: inline-block;
+		    font-size: 13px;
+		    height: 24px;
+		    padding: 10px 7px 0;
+		    text-decoration: none;
+		    vertical-align: top;
+		}
 		.topBarContainer {
 			width: 980px;
 			height: 34px;
@@ -92,8 +101,10 @@
 				Wassup!!!
 			</div>
 			<div class="loginContainer">
-				<a href="${pageContext.request.contextPath}/signup.do">Signup</a>  |  
-				<a href="${pageContext.request.contextPath}/login.do">Login</a>
+				<span class="topBarLinks">
+					<a href="${pageContext.request.contextPath}/signup.do">Signup</a>  |  
+					<a href="${pageContext.request.contextPath}/login.do">Login</a>
+				</span>
 			</div>
 		</div>
 	</div>
@@ -120,7 +131,12 @@
 	<div class="bottomBar">
 		<div class="footerTop"></div>
 		<div class="footer">
-			<span style="font-weight: bold; color: #FFFFFF;">ShitIsUnderConstruction<sup>TM</sup></span>
+			<div style="width: 200px; float: left;">
+				<span style="font-weight: bold; color: #FFFFFF;">ShitIsUnderConstruction<sup>TM</sup></span>
+			</div>
+			<div style="width: 200px; float: right; text-align: right;">
+				${ServletContext.getServerInfo()}
+			</div>
 		</div>
 	</div>
 </body>

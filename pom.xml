@@ -48,6 +48,16 @@
 			<version>3.2.6.RELEASE</version>
 		</dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>3.2.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>3.2.6.RELEASE</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-servlet</artifactId>
             <version>2.2.2</version>
@@ -56,6 +66,11 @@
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-jsp</artifactId>
             <version>2.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.2.11.Final</version>
         </dependency>
 	</dependencies>
 
@@ -83,6 +98,22 @@
 				</plugins>
 			</build>
 		</profile>
+        <profile>            
+            <id>development</id>
+            <build>
+                <finalName>sajhasite</finalName>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.1.1</version>
+                        <configuration>
+                            <outputDirectory>/opt/jboss-as-7.1.1.Final/standalone/deployments</outputDirectory>
+                            <warName>sajhasite</warName>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 	</profiles>
 
 </project>

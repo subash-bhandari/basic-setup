@@ -36,6 +36,12 @@ public class MySqlConnectionVerificationListener implements ServletContextListen
 			Connection conn = DriverManager.getConnection(dbUrl, user, pass);
 			Statement s = conn.createStatement();
 			ResultSet rs = s.executeQuery("select * from users");
+			System.out.println("MySqlConnectionVerificationListener************************************************************");
+			System.out.println("MySqlConnectionVerificationListener************************************************************");
+			System.out.println("data in users table ...");
+			while(rs.next()) {				
+				System.out.printf("%s  %s  %s  %s", rs.getObject(1), rs.getObject(2), rs.getObject(1), rs.getObject(2));				
+			}
 			System.out.println(rs);
 			conn.close();
 		} catch (Exception e) {

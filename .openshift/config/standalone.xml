@@ -102,7 +102,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:jboss/datasources/SajhasiteDS" enabled="${mysql.enabled}" use-java-context="true" pool-name="SajhasiteDS" use-ccm="true">
-                    <connection-url>jdbc:mysql://${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/${env.OPENSHIFT_APP_NAME}</connection-url>
+                    <connection-url>jdbc:mysql://${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/${env.OPENSHIFT_APP_NAME}?autoReconnect=true</connection-url>
                     <driver>mysql</driver>
                     <pool>
                         <min-pool-size>10</min-pool-size>

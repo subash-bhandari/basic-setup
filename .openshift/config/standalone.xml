@@ -119,6 +119,10 @@
                         <background-validation-millis>60000</background-validation-millis>
                         <!--<validate-on-match>true</validate-on-match>-->
                     </validation>
+                    <timeout>
+                        <blocking-timeout-millis>5000</blocking-timeout-millis>
+                        <idle-timeout-minutes>5</idle-timeout-minutes>
+                    </timeout>
                     <pool>
 						<flush-strategy>IdleConnections</flush-strategy>
 					</pool>

@@ -7,7 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/java/com/sajhasite/resource/applicationContext.xml</config>
+		<config>src/main/resources/com/sajhasite/resource/applicationContext.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/configs/sajhasiteDispatcher.xml</config>

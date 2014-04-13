@@ -82,7 +82,7 @@
                 <level name="ERROR"/>
             </logger>
             <root-logger>
-                <level name="INFO"/>
+                <level name="DEBUG"/>
                 <handlers>
                     <!--handler name="CONSOLE"/-->
                     <handler name="FILE"/>
@@ -105,7 +105,7 @@
                     <connection-url>jdbc:mysql://${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/${env.OPENSHIFT_APP_NAME}</connection-url>
                     <driver>mysql</driver>
                     <pool>
-                        <min-pool-size>10</min-pool-size>
+                        <min-pool-size>0</min-pool-size>
                         <max-pool-size>20</max-pool-size>
                         <prefill>true</prefill>
                     </pool>

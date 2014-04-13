@@ -82,7 +82,7 @@
                 <level name="ERROR"/>
             </logger>
             <root-logger>
-                <level name="DEBUG"/>
+                <level name="INFO"/>
                 <handlers>
                     <!--handler name="CONSOLE"/-->
                     <handler name="FILE"/>
@@ -101,11 +101,11 @@
                         <password>sa</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:jboss/datasources/SajhasiteDS" enabled="true" use-java-context="true" pool-name="SajhasiteDS" use-ccm="true">
+                <datasource jndi-name="java:jboss/datasources/SajhasiteDS" enabled="${mysql.enabled}" use-java-context="true" pool-name="SajhasiteDS" use-ccm="true">
                     <connection-url>jdbc:mysql://${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/${env.OPENSHIFT_APP_NAME}</connection-url>
                     <driver>mysql</driver>
                     <pool>
-                        <min-pool-size>0</min-pool-size>
+                        <min-pool-size>10</min-pool-size>
                         <max-pool-size>20</max-pool-size>
                         <prefill>true</prefill>
                     </pool>

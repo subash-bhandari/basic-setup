@@ -7,10 +7,6 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     metadata-complete="false">
     
-    <listener>
-        <listener-class>com.sajhasite.listener.MySqlConnectionVerificationListener</listener-class>
-    </listener>
-    
     <!-- Configurations for the root application context (parent context) -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

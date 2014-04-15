@@ -91,7 +91,10 @@
 			height: 20px;			
 			margin: 0 auto;
 			padding: 0;
-		}		
+		}	
+		.errorMsg {
+			color: red;
+		}	
 	</style>
 </head>
 <body>

@@ -4,7 +4,9 @@
 		padding: 10px;
 	}
 </style>
+
 <form:form method="POST" modelAttribute="signup">
+	<form:errors path="*" cssClass="errorMsg" />
 	<table >
 		<tr>
 			<td>User Id</td>

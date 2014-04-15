@@ -17,5 +17,4 @@ public class UserService extends AbstractService {
 	public List<User> listAllUsers() {
 		return userRepository.getAll();
 	}
-	
 }

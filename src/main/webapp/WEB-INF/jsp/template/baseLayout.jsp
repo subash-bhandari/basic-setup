@@ -2,6 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -115,8 +116,9 @@
 		<div class="header">
 			<div class="headerLogo">
 				<a href="${pageContext.request.contextPath}/home.do">
-					<img src="${pageContext.request.contextPath}/resources/images/sajhasiteLogo.png" /></div>
+					<img src="${pageContext.request.contextPath}/resources/images/sajhasiteLogo.png" />
 				</a>
+			</div>
 			<div class="headerMenu">
 			Posts  |  Categories  |  Locations  |  Users
 			</div>
@@ -138,7 +140,9 @@
 				<span style="font-weight: bold; color: #FFFFFF;">ShitIsUnderConstruction<sup>TM</sup></span>
 			</div>
 			<div style="width: 200px; float: right; text-align: right;">
-				${application.serverInfo}
+				<span style="color: #FFF; font-weight: bold">
+				${pageContext.servletContext.serverInfo}
+				</span>
 			</div>
 		</div>
 	</div>

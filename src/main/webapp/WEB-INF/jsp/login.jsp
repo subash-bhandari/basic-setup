@@ -1,18 +1,26 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <style type="text/css">
 	td {
 		padding: 10px;
 	}
 </style>
-<form:form method="POST" modelAttribute="login">
+<c:if test="${param.error != null}">
+	<span style="color: red">
+		<spring:message code="login.error" />
+	</span>
+</c:if>
+<form action="${pageContext.request.contextPath}/postlogin.do" method="POST">
 	<table >
 		<tr>
 			<td>Login</td>
-			<td><form:input path="loginId" /></td>
+			<td><input type="text" name="username" /></td>			
 		</tr>
 		<tr>
 			<td>Password</td>
-			<td><form:password path="password" /></td>
+			<td><input type="text" name="password" /></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="right">				
@@ -25,4 +33,4 @@
 			</td>
 		</tr>
 	</table>
-</form:form>
+</form>

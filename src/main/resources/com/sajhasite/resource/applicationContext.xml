@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans 
-    xmlns="http://www.springframework.org/schema/beans" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xmlns:aop="http://www.springframework.org/schema/aop"
-    xmlns:c="http://www.springframework.org/schema/c" 
-    xmlns:cache="http://www.springframework.org/schema/cache" 
-    xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:jee="http://www.springframework.org/schema/jee" 
-    xmlns:lang="http://www.springframework.org/schema/lang" 
-    xmlns:p="http://www.springframework.org/schema/p" 
-    xmlns:task="http://www.springframework.org/schema/task"
-    xmlns:util="http://www.springframework.org/schema/util"
-    xmlns:tx="http://www.springframework.org/schema/tx"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-                		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
-                		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-3.2.xsd
-                		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
-                		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
-                		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.2.xsd
-                		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd
-                		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
-                        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:c="http://www.springframework.org/schema/c" xmlns:cache="http://www.springframework.org/schema/cache" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jee="http://www.springframework.org/schema/jee" xmlns:lang="http://www.springframework.org/schema/lang" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:task="http://www.springframework.org/schema/task" xmlns:util="http://www.springframework.org/schema/util" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:security="http://www.springframework.org/schema/security"
+    xsi:schemaLocation="http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
                  
     <context:component-scan base-package="com.sajhasite.service, com.sajhasite.repository" />
     
@@ -46,4 +39,32 @@
     
     <!-- enable the configuration of transactional behavior based on annotations -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+    <security:http pattern="/resources/**" security="none" />
+    <security:http pattern="/login.do" security="none" />
+    <security:http>        
+        <security:form-login 
+                    login-page="/login.do" 
+                    username-parameter="username" 
+                    password-parameter="password"
+                    login-processing-url="/postlogin.do" 
+                    authentication-failure-url="/login.do?error"
+                    default-target-url="/home.do" />
+        <security:intercept-url pattern="/**" access="ROLE_USER" />
+        <security:logout />
+    </security:http>
+    
+    <bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+        <property name="dataSource" ref="sajhasiteDatasource" />
+    </bean>
+    
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:jdbc-user-service 
+                data-source-ref="sajhasiteDatasource"
+                users-by-username-query=""
+                authorities-by-username-query=""
+                group-authorities-by-username-query="" />
+        </security:authentication-provider>
+    </security:authentication-manager>
 </beans>

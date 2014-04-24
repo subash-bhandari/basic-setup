@@ -34,7 +34,7 @@ public class User {
 	}
 
 	@Id
-	@Column(name="userId",nullable=false)
+	@Column(name="username",nullable=false)
 	public String getUserId() {
 		return userId;
 	}

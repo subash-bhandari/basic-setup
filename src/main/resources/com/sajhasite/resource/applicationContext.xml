@@ -42,7 +42,7 @@
     
     <security:http pattern="/resources/**" security="none" />
     <security:http pattern="/login.do" security="none" />
-    <security:http>        
+    <security:http use-expressions="true">        
         <security:form-login 
                     login-page="/login.do" 
                     username-parameter="username" 
@@ -50,8 +50,8 @@
                     login-processing-url="/postlogin.do" 
                     authentication-failure-url="/login.do?error"
                     default-target-url="/home.do" />
-        <security:intercept-url pattern="/**" access="ROLE_USER" />
-        <security:logout />
+        <security:intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+        <security:logout logout-url="/logout.do" logout-success-url="/login.do" />
     </security:http>
     
     <bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
@@ -61,10 +61,7 @@
     <security:authentication-manager>
         <security:authentication-provider>
             <security:jdbc-user-service 
-                data-source-ref="sajhasiteDatasource"
-                users-by-username-query=""
-                authorities-by-username-query=""
-                group-authorities-by-username-query="" />
+                data-source-ref="sajhasiteDatasource" />
         </security:authentication-provider>
     </security:authentication-manager>
 </beans>

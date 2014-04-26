@@ -3,7 +3,6 @@ package com.sajhasite.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.sajhasite.domain.entity.Authority;
@@ -13,9 +12,7 @@ import com.sajhasite.repository.UserRepository;
 @Service
 public class UserService extends AbstractService {
 	
-	@Value("#{systemEnvironment[NAMASTE_NAMASKAR]}")
-	private String userSystemEnvVar;
-	
+
 	@Autowired
 	private UserRepository userRepository;
 	

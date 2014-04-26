@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.sajhasite.domain.entity.AbstractEntity;
+
 public abstract class AbstractRepository<T> {
 	
 	@Autowired
@@ -19,6 +21,10 @@ public abstract class AbstractRepository<T> {
 	}
 	
 	public void save(T entity) {
+		getSession().save(entity);
+	}
+	
+	public void save(AbstractEntity entity) {
 		getSession().save(entity);
 	}
 	

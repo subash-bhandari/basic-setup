@@ -8,14 +8,14 @@
 
 <table>
 	<tr>
-		<td>User Id</td>
+		<td>Username</td>
 		<td>Email</td>
 		<td>Display Name</td>
 		<td>Password</td>
 	</tr>
 	<c:forEach items="${users}" var="user">	
 	<tr>
-		<td>${user.userId}</td>		
+		<td>${user.username}</td>		
 		<td>${user.email}</td>		
 		<td>${user.displayName}</td>
 		<td>${user.password}</td>

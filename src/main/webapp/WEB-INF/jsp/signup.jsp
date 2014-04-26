@@ -9,8 +9,8 @@
 	<form:errors path="*" cssClass="errorMsg" />
 	<table >
 		<tr>
-			<td>User Id</td>
-			<td><form:input path="userId" /></td>
+			<td>Username</td>
+			<td><form:input path="username" /></td>
 		</tr>
 		<tr>
 			<td>Email</td>

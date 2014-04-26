@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sajhasite.domain.entity.User;
-import com.sajhasite.service.AuthAuthService;
+import com.sajhasite.service.UserService;
 import com.sajhasite.validator.UserValidator;
 
 @Controller
@@ -21,7 +21,7 @@ import com.sajhasite.validator.UserValidator;
 public class SignupController {
 
 	@Autowired
-	private AuthAuthService authAuthService;
+	private UserService userService;
 
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
@@ -39,7 +39,7 @@ public class SignupController {
 		if(br.hasErrors()) {
 			return "signup";
 		}
-		authAuthService.createUser(user);
+		userService.createUser(user);
 		return "redirect:login.do";
 	}
 }

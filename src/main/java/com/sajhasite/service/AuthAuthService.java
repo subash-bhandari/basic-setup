@@ -13,18 +13,7 @@ public class AuthAuthService extends AbstractService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	public boolean authenticate(Login login) {
-		User user = userRepository.getByEmail(login.getLoginId());
-		if(user == null) {
-			user = userRepository.getByUserId(login.getLoginId());
-		}
-		if(user == null) {
-			return false;
-		}
-		return login.getPassword().equals(user.getPassword());
-	}
 	
-	public void createUser(User user) {
-		userRepository.save(user);
-	}
+	
+	
 }

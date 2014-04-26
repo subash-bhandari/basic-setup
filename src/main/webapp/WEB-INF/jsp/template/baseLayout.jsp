@@ -10,7 +10,8 @@
 	<title><tiles:insertAttribute name="title" ignore="true" /></title>	
 	<style type="text/css">
 		body {
-		    margin: 0;		    
+		    margin: 0;	
+		    background-color: #336699;	    
 		}
 		div .loginContainer a:link {color:#FFFFFF;}      /* unvisited link */
 		div .loginContainer a:visited {color:#FFFFFF;}  /* visited link */
@@ -50,7 +51,7 @@
 			border: 0;
 			font-size: 100%;
 			vertical-align: baseline;
-			background: transparent;
+			background-color: #FFFFFF;
 		}
 		.header {
 			width: 980px;

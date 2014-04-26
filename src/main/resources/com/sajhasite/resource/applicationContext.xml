@@ -17,6 +17,13 @@
                  
     <context:component-scan base-package="com.sajhasite.service, com.sajhasite.repository" />
     
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">    
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://#{systemEnvironment[OPENSHIFT_MYSQL_DB_HOST]}:#{systemEnvironment[OPENSHIFT_MYSQL_DB_PORT]}/#{systemEnvironment[OPENSHIFT_APP_NAME]}" />
+        <property name="username" value="#{systemEnvironment[OPENSHIFT_MYSQL_DB_USERNAME]}" />
+        <property name="password" value="#{systemEnvironment[OPENSHIFT_MYSQL_DB_PASSWORD]}" />
+    </bean>
+    
     <jee:jndi-lookup id="sajhasiteDatasource" jndi-name="datasources/SajhasiteDS" resource-ref="true" />
     
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -24,6 +31,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.sajhasite.domain.entity.User</value>
+                <value>com.sajhasite.domain.entity.Authority</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -42,6 +50,7 @@
     
     <security:http pattern="/resources/**" security="none" />
     <security:http pattern="/login.do" security="none" />
+    <security:http pattern="/signup.do" security="none" />
     <security:http use-expressions="true">        
         <security:form-login 
                     login-page="/login.do" 

@@ -13,8 +13,8 @@ public class UserRepository extends AbstractRepository<User> {
 		return executeNamedQuery("getAllUsers");
 	}
 	
-	public User getByUserId(String userId) {
-		return executeNamedQueryUniqueResult("getUserByUserId", "userId", userId);
+	public User getByUsername(String username) {
+		return executeNamedQueryUniqueResult("getUserByUserId", "username", username);
 	}
 	
 	public User getByEmail(String email) {

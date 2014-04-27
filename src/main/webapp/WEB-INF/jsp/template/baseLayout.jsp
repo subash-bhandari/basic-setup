@@ -9,9 +9,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title><tiles:insertAttribute name="title" ignore="true" /></title>	
 	<style type="text/css">
+		html {
+			min-height: 100%;
+			font-family: Monaco, Consolas, "Lucida Console", monospace;
+			font-size: 10pt;
+		}
 		body {
 		    margin: 0;	
-		    background-color: #336699;	    
+		    /* can be treated like a fallback */
+			background-color: #efefef;
+			
+			/* will be "on top", if browser supports it */
+			/*background-image: linear-gradient(	#bfbcc5, #0A0A0A); */
 		}
 		div .loginContainer a:link {color:#FFFFFF;}      /* unvisited link */
 		div .loginContainer a:visited {color:#FFFFFF;}  /* visited link */
@@ -19,8 +28,8 @@
 		div .loginContainer a:active {color:#FFFFFF;}  /* selected link */
 		.topBar {
 			height: 32px;
-			background-color: #003366;
-			color: #FFFFFF;
+			background-color: #0A122A;
+			color: #efefef;
 		}
 		.topBarLinks a:visited {
 		    color: #E0E0E0;
@@ -39,18 +48,15 @@
 		}
 		.loginContainer {
 			text-align: right;
+			padding-top: 5px;
 			padding-right: 5px;
 			width: 160px;
-			height: 34px;
 			float: right;
 		}
-		.container {
-			width: 980px;			
-			margin: 0 auto;
+		.container {		
+			margin: 0;
 			padding: 0;
 			border: 0;
-			font-size: 100%;
-			vertical-align: baseline;
 			background-color: #FFFFFF;
 		}
 		.header {
@@ -65,12 +71,13 @@
 		}
 		.headerMenu {
 			float: left;
-			padding: 34px 0 20px 5px;
-			margin-top: 10px;
+			padding: 10px 0 20px 5px;
+			margin-top: 0px;
 			width: 720px;
 		}
 		.content {
-		
+			width: 980px;
+			margin: 0 auto;
 		}
 		.contentTitleContainer {
 		}
@@ -79,7 +86,8 @@
 			padding-bottom: 50px;
 		}
 		.bottomBar {
-			background-color: #336699;
+			/*background-color: #336699;*/
+			background-color: transparent;
 			padding: 0;
 		}
 		.footer {
@@ -87,6 +95,7 @@
 			height: 76px;
 			margin: 0 auto;
 			padding: 0;
+			color: #6a6a6a;
 		}
 		.footerTop {
 			background-color: #FFFFFF;
@@ -131,12 +140,15 @@
 				</a>
 			</div>
 			<div class="headerMenu">
-			Posts  |  Categories  |  Locations  |  Users
+			<a href="${pageContext.request.contextPath}/posts.do">Posts</a>  |  
+			<a href="${pageContext.request.contextPath}/categories.do">Categories</a>  |  
+			<a href="${pageContext.request.contextPath}/locations.do">Locations</a>  |  
+			<a href="${pageContext.request.contextPath}/users.do">Users</a>
 			</div>
 		</div>	
 		<div class="content">
 			<div class="contentTitleContainer">
-				<tiles:getAsString name="contentTitle" />
+				<span style="font-weight: bold;"><tiles:getAsString name="contentTitle" /></span>
 				<hr />
 			</div>
 			<div class="contentBody">
@@ -148,10 +160,10 @@
 		<div class="footerTop"></div>
 		<div class="footer">
 			<div style="width: 200px; float: left;">
-				<span style="font-weight: bold; color: #FFFFFF;">ShitIsUnderConstruction<sup>TM</sup></span>
+				<span style="font-weight: regular;">ShitIsUnderConstruction<sup>TM</sup></span>
 			</div>
-			<div style="width: 200px; float: right; text-align: right;">
-				<span style="color: #FFF; font-weight: bold">
+			<div style="width: 400px; float: right; text-align: right;">
+				<span style="font-weight: regular;">
 				${pageContext.servletContext.serverInfo}
 				</span>
 			</div>

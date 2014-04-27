@@ -35,4 +35,28 @@
         <put-attribute name="content" value="/WEB-INF/jsp/forgotPassword.jsp" />
     </definition>
     
+    <definition name="posts" extends="base.definition">
+        <put-attribute name="title" value="Posts" />
+        <put-attribute name="contentTitle" value="Posts" />
+        <put-attribute name="content" value="/WEB-INF/jsp/posts.jsp" />
+    </definition>
+    
+    <definition name="categories" extends="base.definition">
+        <put-attribute name="title" value="Categories" />
+        <put-attribute name="contentTitle" value="Categories" />
+        <put-attribute name="content" value="/WEB-INF/jsp/categories.jsp" />
+    </definition>
+    
+    <definition name="locations" extends="base.definition">
+        <put-attribute name="title" value="Locations" />
+        <put-attribute name="contentTitle" value="Locations" />
+        <put-attribute name="content" value="/WEB-INF/jsp/locations.jsp" />
+    </definition>
+    
+    <definition name="users" extends="base.definition">
+        <put-attribute name="title" value="Users" />
+        <put-attribute name="contentTitle" value="Users" />
+        <put-attribute name="content" value="/WEB-INF/jsp/users.jsp" />
+    </definition>
+    
 </tiles-definitions>

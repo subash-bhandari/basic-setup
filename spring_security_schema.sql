@@ -31,3 +31,47 @@ create table group_members (
   primary key(id),
   constraint fk_group_members_group foreign key(group_id) references groups(id)
 );
+
+create table posts (
+  id bigint(20) not null auto_increment,
+  tile varchar(200) not null,
+  author_id bigint(20) not null,
+  created_ts timestamp not null,
+  updated_ts timestamp not null,
+  primary key(id),
+  constraint fk_posts_users foreign key(author_id) references users(id)
+);
+
+create table post_contents (
+  post_id bigint(20) not null,
+  content mediumtext not null,
+  constraint fk_post_contents_posts foreign key(post_id) references posts(id)
+);
+
+create table comments (
+  id bigint(20) not null auto_increment,
+  commentor_id bigint(20) not null,
+  created_ts timestamp not null,
+  updated_ts timestamp not null,
+  primary key(id),
+  constraint fk_comments_users foreign key(commentor_id) references users(id)
+);
+
+create table comment_contents (
+  comment_id bigint(20) not null,
+  content mediumtext not null,
+  constraint fk_comment_contents_comments foreign key(comment_id) references comments(id)
+);
+
+create table categories (
+  id bigint(20) not null auto_increment,
+  category varchar(100) not null,
+  primary key(id)
+);
+
+create table posts_categories (
+  post_id bigint(20) not null,
+  category_id bigint(20) not null,
+  constraint posts_categories_posts foreign key(post_id) references posts(id),
+  constraint posts_categories_categories foreign key(category_id) references categories(id)
+);

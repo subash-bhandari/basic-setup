@@ -11,9 +11,13 @@
 		</layout>
 	</appender>
     
+    <!--
+        /var/lib/openshift/533cde83e0b8cdb968000025/jbossas/standalone/log/sajhasite.log
+    -->
+    
     <appender name="SAJHASITE_FILE" class="org.apache.log4j.RollingFileAppender">
         <param name="Threshold" value="DEBUG"/>
-        <param name="file" value="/var/lib/openshift/533cde83e0b8cdb968000025/jbossas/standalone/log/sajhasite.log" />
+        <param name="file" value="/opt/jboss-as-7.1.1.Final/standalone/log/sajhasite.log" />
         <param name="MaxFileSize" value="100KB" />
         <param name="MaxBackupIndex" value="1" />
         <layout class="org.apache.log4j.PatternLayout">
@@ -30,7 +34,7 @@
 	</logger>
 
 	<logger name="org.springframework.beans">
-		<level value="DEBUG" />
+		<level value="INFO" />
 	</logger>
 
 	<logger name="org.springframework.context">
@@ -46,7 +50,7 @@
 	</logger>
     
     <logger name="org.springframework.security">
-        <level value="INFO" />
+        <level value="DEBUG" />
     </logger>
     
     <logger name="org.springframework">
@@ -63,6 +67,10 @@
     
     <logger name="org.apache">
         <level value="INFO"/>
+    </logger>
+    
+    <logger name="com.sajhasite">
+        <level value="DEBUG"/>
     </logger>
 
 	<root>

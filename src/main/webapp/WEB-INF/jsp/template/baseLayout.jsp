@@ -17,7 +17,7 @@
 		body {
 		    margin: 0;	
 		    /* can be treated like a fallback */
-			background-color: #efefef;
+			background-color: #DfDfDf;
 			
 			/* will be "on top", if browser supports it */
 			/*background-image: linear-gradient(	#bfbcc5, #0A0A0A); */
@@ -28,7 +28,7 @@
 		div .loginContainer a:active {color:#FFFFFF;}  /* selected link */
 		.topBar {
 			height: 32px;
-			background-color: #0A122A;
+			background-color: #595959;
 			color: #efefef;
 		}
 		.topBarLinks a:visited {
@@ -95,7 +95,7 @@
 			height: 76px;
 			margin: 0 auto;
 			padding: 0;
-			color: #6a6a6a;
+			color: #777777;
 		}
 		.footerTop {
 			background-color: #FFFFFF;
@@ -121,7 +121,7 @@
 					<c:choose>
 						<c:when test="${loggedIn}">
 							<sec:authentication  property="principal.username" /> | 
-							<a href="${pageContext.request.contextPath}/login.do">Logout</a>
+							<a href="${pageContext.request.contextPath}/logout.do">Logout</a>
 						</c:when>
 						<c:otherwise>
 							<a href="${pageContext.request.contextPath}/signup.do">Signup</a>  |  
@@ -143,7 +143,8 @@
 			<a href="${pageContext.request.contextPath}/posts.do">Posts</a>  |  
 			<a href="${pageContext.request.contextPath}/categories.do">Categories</a>  |  
 			<a href="${pageContext.request.contextPath}/locations.do">Locations</a>  |  
-			<a href="${pageContext.request.contextPath}/users.do">Users</a>
+			<a href="${pageContext.request.contextPath}/users.do">Users</a>  |  
+			<a href="${pageContext.request.contextPath}/createpost.do"> >> Create Post << </a>
 			</div>
 		</div>	
 		<div class="content">

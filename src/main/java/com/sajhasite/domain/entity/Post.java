@@ -31,6 +31,7 @@ public class Post extends AbstractEntity {
 	private Date updatedAt;
 	private PostContent postContent;
 	private List<Category> categories;
+	private List<Comment> comments;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -104,6 +105,15 @@ public class Post extends AbstractEntity {
 
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;
+	}
+
+	@OneToMany(mappedBy="post")
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 	
 	

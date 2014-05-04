@@ -24,6 +24,7 @@ public class Comment extends AbstractEntity {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	private Post post;
 	private User commentor;
 	private Date createdAt;
 	private Date updatedAt;
@@ -40,6 +41,17 @@ public class Comment extends AbstractEntity {
 		this.id = id;
 	}
 	
+	
+	@ManyToOne
+	@JoinColumn(name="post_id")
+	public Post getPost() {
+		return post;
+	}
+
+	public void setPost(Post post) {
+		this.post = post;
+	}
+
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="commentor_id", referencedColumnName="id")
 	public User getCommentor() {
